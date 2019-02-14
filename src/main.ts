@@ -12,7 +12,8 @@ import { AppModule } from "./app/app.module";
 // that sets up a NativeScript application and can bootstrap the Angular framework.
 //----------------------------------------
 //Padrão
-//platformNativeScriptDynamic().bootstrapModule(AppModule);
+platformNativeScriptDynamic().bootstrapModule(AppModule);
 //----------------------------------------
 
-platformNativeScriptDynamic({createFrameOnBootstrap: true}).bootstrapModule(AppModule);
+//Quando usar ActionBar
+//platformNativeScriptDynamic({createFrameOnBootstrap: true}).bootstrapModule(AppModule);

@@ -10,6 +10,10 @@ import { AppComponent } from "./app.component";
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
 // import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 
+//import pages
+import { SignInComponent } from "./sign-in/sign-in.component";
+import { SignUpComponent } from "./sign-up/sign-up.component";
+
 @NgModule({
     bootstrap: [
         AppComponent
@@ -19,7 +23,9 @@ import { AppComponent } from "./app.component";
         AppRoutingModule
     ],
     declarations: [
-        AppComponent
+        AppComponent,
+        SignInComponent,
+        SignUpComponent
     ],
     providers: [],
     schemas: [

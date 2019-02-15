@@ -1,28 +1,31 @@
-<ActionBar title="Criar Conta" class="action-bar"></ActionBar>
-<ScrollView>   
-  <StackLayout class="page">
-    <StackLayout class="form">
-      <StackLayout class="input-field">
-        <label text="Nome" class="label font-weight-bold m-b-5"></label>
-        <TextField class="input"></TextField>
-        <StackLayout class="hr-light"></StackLayout>
-      </StackLayout>
-      <StackLayout class="input-field">
-          <label text="Email" class="label font-weight-bold m-b-5"></label>
-          <TextField class="input" keyboardType="email" autocapitalizationType="none" autocorrect="false"></TextField>
-          <StackLayout class="hr-light"></StackLayout>
-      </StackLayout>
-      <StackLayout class="input-field">
-          <label text="Senha" class="label font-weight-bold m-b-5"></label>
-          <TextField class="input" secure="true"></TextField>
-          <StackLayout class="hr-light"></StackLayout>
-      </StackLayout>
-      <StackLayout class="input-field">
-          <label text="Corfirmar Senha" class="label font-weight-bold m-b-5"></label>
-          <TextField class="input" secure="true"></TextField>
-          <StackLayout class="hr-light"></StackLayout>
-      </StackLayout>
+ <ActionBar title="Taskmanager - Criar Conta" class="action-bar"></ActionBar>
+    <StackLayout class="page">   
+      <ScrollView class="page" orientation="vertical">   
+          
+            <StackLayout class="form">
+              <StackLayout class="input-field">
+                <label text="Nome" class="label font-weight-bold m-b-5"></label>
+                <TextField class="input"></TextField>
+                <StackLayout class="hr-light"></StackLayout>
+              </StackLayout>
+              <StackLayout class="input-field">
+                  <label text="Email" class="label font-weight-bold m-b-5"></label>
+                  <TextField class="input" keyboardType="email" autocapitalizationType="none" autocorrect="false"></TextField>
+                  <StackLayout class="hr-light"></StackLayout>
+              </StackLayout>
+              <StackLayout class="input-field">
+                  <label text="Senha" class="label font-weight-bold m-b-5"></label>
+                  <TextField class="input" secure="true"></TextField>
+                  <StackLayout class="hr-light"></StackLayout>
+              </StackLayout>
+              <StackLayout class="input-field">
+                  <label text="Corfirmar Senha" class="label font-weight-bold m-b-5"></label>
+                  <TextField class="input" secure="true"></TextField>
+                  <StackLayout class="hr-light"></StackLayout>
+              </StackLayout>
+              <button text="Cadastrar" class="btn btn-primary"></button>
+              <button text="Login" class="btn btn-outline" nsRouterLink="/sign-in" pageTransition="slideBottom"></button>
+            </StackLayout>            
+          
+      </ScrollView>
     </StackLayout>
-      <button text="Cadastrar" class="btn btn-primary"></button>
-  </StackLayout>
-</ScrollView>

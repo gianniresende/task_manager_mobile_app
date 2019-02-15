@@ -1,9 +1,9 @@
-<ActionBar title="Login" class="action-bar"></ActionBar>
+<ActionBar title="TaskManager - Login" class="action-bar"></ActionBar>
 
 <StackLayout class="page">
-
-    <Image src="../images/app_icon.png"></Image>
   <StackLayout class="form">
+    
+      <!--<Image src="~/images/app_icon.png"></Image>-->
     <StackLayout class="input-field">
       <label text="Email" class="label font-weight-bold m-b-5"></label>
       <TextField class="input" keyboardType="email" autocapitalizationType="none" autocorrect="false"></TextField>
@@ -15,8 +15,9 @@
         <TextField class="input" secure="true"></TextField>
         <StackLayout class="hr-light"></StackLayout>
     </StackLayout>
-
-  </StackLayout>
     <button text="Login" class="btn btn-primary"></button>
+    <button text="Login" nsRouterLink="/sign-up" pageTransition="slideTop" class="btn btn-outline"></button>
+  </StackLayout>
+    
 
 </StackLayout>

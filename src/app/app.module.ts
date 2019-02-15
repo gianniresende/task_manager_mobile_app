@@ -14,6 +14,8 @@ import { AppComponent } from "./app.component";
 import { SignInComponent } from "./sign-in/sign-in.component";
 import { SignUpComponent } from "./sign-up/sign-up.component";
 
+import { NSAngular2TokenService } from "./shared/ns-angular2-token/ns-angular2-token.service";
+
 @NgModule({
     bootstrap: [
         AppComponent
@@ -27,7 +29,9 @@ import { SignUpComponent } from "./sign-up/sign-up.component";
         SignInComponent,
         SignUpComponent
     ],
-    providers: [],
+    providers: [
+        NSAngular2TokenService
+    ],
     schemas: [
         NO_ERRORS_SCHEMA
     ]

@@ -1,31 +1,37 @@
+// angular imports
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
+
+//nativescript imports
+import { NativeScriptHttpModule } from "nativescript-angular/http";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
-
-import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
-
-// Uncomment and add to NgModule imports if you need to use two-way binding
+//import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
-// Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
-//import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
-import { NativeScriptHttpModule } from "nativescript-angular/http";
+
+//app core imports
+import { AppComponent } from "./app.component";
+import { AppRoutingModule } from "./app-routing.module";
 
 
-//import pages
+//componentes imports
 import { SignInComponent } from "./sign-in/sign-in.component";
 import { SignUpComponent } from "./sign-up/sign-up.component";
 
-import { NSAngular2TokenService } from "./shared/ns-angular2-token/ns-angular2-token.service";
+
+//service imports
+import { AuthGuard } from "./guards/auth.guard";
+import { AuthService } from "./shared/auth.service";
+import { TokenService } from "./shared/token.service";
+
 
 @NgModule({
     bootstrap: [
       AppComponent
     ],
     imports: [
-      NativeScriptModule,
       AppRoutingModule,
-      NativeScriptHttpModule
+      NativeScriptHttpModule,
+      NativeScriptModule        
     ],
     declarations: [
       AppComponent,
@@ -33,7 +39,9 @@ import { NSAngular2TokenService } from "./shared/ns-angular2-token/ns-angular2-t
       SignUpComponent
     ],
     providers: [
-      NSAngular2TokenService
+      AuthGuard,
+      AuthService,
+      TokenService
     ],
     schemas: [
       NO_ERRORS_SCHEMA

@@ -1,23 +1,21 @@
 <ActionBar title="TaskManager - Login" class="action-bar"></ActionBar>
+  <ScrollView>
+    <StackLayout class="page">
+      <StackLayout class="form">        
+          <!--<Image src="~/images/app_icon.png"></Image>-->
+        <StackLayout class="input-field">
+          <label text="Email" class="label font-weight-bold m-b-5"></label>
+          <TextField class="input" keyboardType="email" autocapitalizationType="none" autocorrect="false"></TextField>
+          <StackLayout class="hr-light"></StackLayout>
+        </StackLayout>
 
-<StackLayout class="page">
-  <StackLayout class="form">
-    
-      <!--<Image src="~/images/app_icon.png"></Image>-->
-    <StackLayout class="input-field">
-      <label text="Email" class="label font-weight-bold m-b-5"></label>
-      <TextField class="input" keyboardType="email" autocapitalizationType="none" autocorrect="false"></TextField>
-      <StackLayout class="hr-light"></StackLayout>
+        <StackLayout class="input-field">
+            <label text="Senha" class="label font-weight-bold m-b-5"></label>
+            <TextField class="input" secure="true"></TextField>
+            <StackLayout class="hr-light"></StackLayout>
+        </StackLayout>
+        <button text="Login" class="btn btn-primary"></button>
+        <button text="Login" nsRouterLink="/sign-up" pageTransition="slideTop" class="btn btn-outline"></button>
+      </StackLayout> 
     </StackLayout>
-
-    <StackLayout class="input-field">
-        <label text="Senha" class="label font-weight-bold m-b-5"></label>
-        <TextField class="input" secure="true"></TextField>
-        <StackLayout class="hr-light"></StackLayout>
-    </StackLayout>
-    <button text="Login" class="btn btn-primary"></button>
-    <button text="Login" nsRouterLink="/sign-up" pageTransition="slideTop" class="btn btn-outline"></button>
-  </StackLayout>
-    
-
-</StackLayout>
+  </ScrollView>

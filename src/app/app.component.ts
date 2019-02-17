@@ -1,12 +1,12 @@
 import { Component } from "@angular/core";
-import { NSAngular2TokenService } from "./shared/ns-angular2-token/ns-angular2-token.service";
+import { TokenService } from "./shared/token.service";
 @Component({
     selector: "ns-app",
     moduleId: module.id,
     templateUrl: "./app.component.html"
 })
 export class AppComponent {
-  public constructor(private tokenService: NSAngular2TokenService){
+  public constructor(private tokenService: TokenService){
     this.tokenService.init({
         apiBase: "http://10.0.3.3:3000",
         globalOptions:{

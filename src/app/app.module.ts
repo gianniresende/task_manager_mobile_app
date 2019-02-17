@@ -14,6 +14,7 @@ import { AppRoutingModule } from "./app-routing.module";
 
 
 //componentes imports
+import { HomeComponent } from "./home/home.component";
 import { SignInComponent } from "./sign-in/sign-in.component";
 import { SignUpComponent } from "./sign-up/sign-up.component";
 
@@ -35,6 +36,7 @@ import { TokenService } from "./shared/token.service";
     ],
     declarations: [
       AppComponent,
+      HomeComponent,
       SignInComponent,
       SignUpComponent
     ],

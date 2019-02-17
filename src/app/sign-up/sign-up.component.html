@@ -1,31 +1,62 @@
  <ActionBar title="Taskmanager - Criar Conta" class="action-bar"></ActionBar>
-    <StackLayout class="page">   
-      <ScrollView class="page" orientation="vertical">   
-          
-            <StackLayout class="form">
-              <StackLayout class="input-field">
-                <label text="Nome" class="label font-weight-bold m-b-5"></label>
-                <TextField class="input"></TextField>
-                <StackLayout class="hr-light"></StackLayout>
-              </StackLayout>
-              <StackLayout class="input-field">
-                  <label text="Email" class="label font-weight-bold m-b-5"></label>
-                  <TextField class="input" keyboardType="email" autocapitalizationType="none" autocorrect="false"></TextField>
-                  <StackLayout class="hr-light"></StackLayout>
-              </StackLayout>
-              <StackLayout class="input-field">
-                  <label text="Senha" class="label font-weight-bold m-b-5"></label>
-                  <TextField class="input" secure="true"></TextField>
-                  <StackLayout class="hr-light"></StackLayout>
-              </StackLayout>
-              <StackLayout class="input-field">
-                  <label text="Corfirmar Senha" class="label font-weight-bold m-b-5"></label>
-                  <TextField class="input" secure="true"></TextField>
-                  <StackLayout class="hr-light"></StackLayout>
-              </StackLayout>
-              <button text="Cadastrar" class="btn btn-primary"></button>
-              <button text="Login" class="btn btn-outline" nsRouterLink="/sign-in" pageTransition="slideBottom"></button>
-            </StackLayout>            
-          
-      </ScrollView>
-    </StackLayout>
+  <StackLayout class="page">   
+    <ScrollView class="page" orientation="vertical">            
+      <StackLayout class="form" [formGroup]="form">
+
+        <!--name--> 
+        <StackLayout class="input-field">
+          <label text="Nome" class="label font-weight-bold m-b-5"></label>
+          <TextField class="input" formControlName="name"></TextField>
+          <StackLayout class="hr-light"></StackLayout>
+          <stackLayout *ngIf="form.get('name').invalid && form.get('name').dirty">
+            <label *ngIf="form.get('name').errors.required" class="text-right text-danger" text="Campo obrigatório"></label>
+            <label *ngIf="form.get('name').errors.minlength" class="text-right text-danger" text="O nome deve ter no mínimo 5 caracteres"></label>
+            <label *ngIf="form.get('name').errors.maxlength" class="text-right text-danger" text="O nome deve ter no mínimo 50 caracteres"></label>      
+          </stackLayout>
+        </StackLayout>
+
+        <!--email-->        
+        <StackLayout class="input-field">
+            <label text="Email" class="label font-weight-bold m-b-5"></label>
+            <TextField class="input" formControlName="email" keyboardType="email" autocapitalizationType="none" autocorrect="false"></TextField>
+            <StackLayout class="hr-light"></StackLayout>
+            <stackLayout *ngIf="form.get('email').invalid && form.get('email').dirty">
+                <label *ngIf="form.get('email').errors.required" class="text-right text-danger" text="Campo email obrigatório"></label>
+                <label *ngIf="form.get('email').errors.email" class="text-right text-danger" text="Email inválido"></label>
+            </stackLayout>
+        </StackLayout>
+
+        <!--password--> 
+        <StackLayout class="input-field">
+            <label text="Senha" class="label font-weight-bold m-b-5"></label>
+            <TextField class="input" secure="true" formControlName="password"></TextField>
+            <StackLayout class="hr-light"></StackLayout>
+            <stackLayout *ngIf="form.get('password').invalid && form.get('password').dirty">
+                <label *ngIf="form.get('password').errors.required" class="text-right text-danger" text="Campo obrigatório"></label>
+                <label *ngIf="form.get('password').errors.minlength" class="text-right text-danger" text="Password deve ter no mínimo 8 caracteres"></label>                     
+            </stackLayout>
+        </StackLayout>
+
+        <!--confirmationpwd--> 
+        <StackLayout class="input-field">
+            <label text="Corfirmar Senha" class="label font-weight-bold m-b-5"></label>
+            <TextField class="input" secure="true" formControlName="passwordConfirmation"></TextField>
+            <StackLayout class="hr-light"></StackLayout>
+            <stackLayout *ngIf="form.get('passwordConfirmation').invalid && form.get('passwordConfirmation').dirty">
+                <label *ngIf="form.get('passwordConfirmation').errors.required" class="text-right text-danger" text="Campo obrigatório"></label>
+                <label *ngIf="form.get('passwordConfirmation').errors.mismatch" class="text-right text-danger" text="Password e Corfimação não coencidem"></label>                     
+            </stackLayout>
+        </StackLayout>
+
+        <!--formErrors-->
+        <StackLayout *ngIf="formErrors" class="formErrors">
+          <Label class="font-weight-bold" text="Ocorreu um erro na criação da sua conta"></Label>
+          <label *ngFor="let error of formErrors" [text]="error" class="text-danger" textWrap="true"></label>
+        </StackLayout>
+
+        <!--buttons-->
+        <button text="Cadastrar" class="btn btn-primary" [isEnabled]="form.valid && !submitted" (tap)="signUpUser()"></button>
+        <button text="Login" class="btn btn-outline" nsRouterLink="/sign-in" pageTransition="slideBottom"></button>
+      </StackLayout>  
+    </ScrollView>
+  </StackLayout>

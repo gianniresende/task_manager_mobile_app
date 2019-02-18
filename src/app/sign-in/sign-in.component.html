@@ -1,7 +1,8 @@
-<ActionBar title="TaskManager - Login" class="action-bar"></ActionBar>
+
+<ActionBar title="TaskManager - Login" class="action-bar" android.icon="res://icon" android.iconVisibility="always"></ActionBar>
   <ScrollView>
     <StackLayout class="page">
-      <StackLayout class="form" [formGroup]="form">        
+      <StackLayout class="form" [formGroup]="form" android.icon="res://app_icon" android.iconVisibility="always">        
           <!--<Image src="~/images/app_icon.png"></Image>-->
           
           <!--email-->
@@ -29,9 +30,13 @@
             <Label class="font-weight-bold" text="Ocorreu um erro ao logar"></Label>
             <Label *ngFor="let error of formErrors" [text]="error" class="text-danger" textWrap="true"></Label>
           </StackLayout>
-             <!-- buttons -->
-            <Button text="Entrar" class="btn btn-primary" [isEnabled]="form.valid && !submitted" (tap)="signInUser()"></Button>
-            <button text="Criar Conta" nsRouterLink="/sign-up" pageTransition="slideTop" class="btn btn-outline"></button>
+
+          <!-- ActivityIndicator -->
+          <ActivityIndicator [busy]="submitted" *ngIf="submitted" horizontalAlignment="center"></ActivityIndicator>
+             
+          <!-- buttons -->
+          <Button text="Entrar" class="btn btn-primary" [isEnabled]="form.valid && !submitted" (tap)="signInUser()"></Button>
+          <button text="Criar Conta" nsRouterLink="/sign-up" pageTransition="slideTop" class="btn btn-outline"></button>
       </StackLayout> 
     </StackLayout>
   </ScrollView>

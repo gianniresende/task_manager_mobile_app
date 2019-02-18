@@ -36,8 +36,9 @@ public signUpUser(){
           this.submitted = false;
 
           if( error.status === 422 )
-            this.formErrors = JSON.parse(error._body).errors.full_messages;
-          else
+            //this.formErrors = JSON.parse(error._body).errors.full_messages;
+            this.formErrors = ["Este email já esta cadastrado!"]
+            else
             this.formErrors = ["Não foi possível processar a sua solicitação. Por favor, tente mais tarde."]
         }
       )
@@ -52,7 +53,7 @@ public signUpUser(){
 
   private setupForm(){
     this.form = this.formBuilder.group({
-      name: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
+      name: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.minLength(8)]],
       passwordConfirmation: [null, [Validators.required]]

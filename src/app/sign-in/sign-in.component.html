@@ -1,22 +1,37 @@
 <ActionBar title="TaskManager - Login" class="action-bar"></ActionBar>
   <ScrollView>
     <StackLayout class="page">
-      <StackLayout class="form">        
+      <StackLayout class="form" [formGroup]="form">        
           <!--<Image src="~/images/app_icon.png"></Image>-->
-        <StackLayout class="input-field">
-          <label text="Email" class="label font-weight-bold m-b-5"></label>
-          <TextField class="input" keyboardType="email" autocapitalizationType="none" autocorrect="false"></TextField>
-          <StackLayout class="hr-light"></StackLayout>
           
-        </StackLayout>
+          <!--email-->
+          <StackLayout class="input-field">
+              <label text="Email" class="label font-weight-bold m-b-5"></label>
+              <TextField class="input" formControlName="email" keyboardType="email" autocapitalizationType="none" autocorrect="false"></TextField>
+              <StackLayout class="hr-light"></StackLayout>
+              <stackLayout *ngIf="form.get('email').invalid && form.get('email').dirty">
+                  <label *ngIf="form.get('email').errors.required" class="text-right text-danger" text="Campo email obrigatório"></label>
+                  <label *ngIf="form.get('email').errors.email" class="text-right text-danger" text="Email inválido"></label>
+              </stackLayout>
+          </StackLayout>
 
-        <StackLayout class="input-field">
-            <label text="Senha" class="label font-weight-bold m-b-5"></label>
-            <TextField class="input" secure="true"></TextField>
-            <StackLayout class="hr-light"></StackLayout>
-        </StackLayout>
-        <button text="Login" class="btn btn-primary"></button>
-        <button text="Criar Conta" nsRouterLink="/sign-up" pageTransition="slideTop" class="btn btn-outline"></button>
+          <!--password-->
+          <StackLayout class="input-field">
+              <label text="Senha" class="label font-weight-bold m-b-5"></label>
+              <TextField class="input" secure="true" formControlName="password"></TextField>
+              <StackLayout class="hr-light"></StackLayout>
+              <stackLayout *ngIf="form.get('password').invalid && form.get('password').dirty">
+                  <label *ngIf="form.get('password').errors.required" class="text-right text-danger" text="Campo obrigatório"></label>
+              </stackLayout>
+          </StackLayout>
+           <!-- formErrors -->
+          <StackLayout *ngIf="formErrors" class="formErrors">
+            <Label class="font-weight-bold" text="Ocorreu um erro ao logar"></Label>
+            <Label *ngFor="let error of formErrors" [text]="error" class="text-danger" textWrap="true"></Label>
+          </StackLayout>
+             <!-- buttons -->
+            <Button text="Entrar" class="btn btn-primary" [isEnabled]="form.valid && !submitted" (tap)="signInUser()"></Button>
+            <button text="Criar Conta" nsRouterLink="/sign-up" pageTransition="slideTop" class="btn btn-outline"></button>
       </StackLayout> 
     </StackLayout>
   </ScrollView>

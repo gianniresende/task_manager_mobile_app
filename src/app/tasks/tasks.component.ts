@@ -13,7 +13,7 @@ export class TasksComponent{
   public constructor(){
     this.tasks = [
       {id: 1, title: "Comprar Notebook Novo", done: false },
-      {id: 2, title: "Lavar o Carro", done: false },
+      {id: 2, title: "Lavar o Carro", done: true },
       {id: 3, title: "Estudar NativeScript", done: false },
       {id: 4, title: "Cobrir casa da roça", done: false }
     ]

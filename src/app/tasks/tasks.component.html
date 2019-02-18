@@ -4,4 +4,14 @@
     <TextField col="0" class="input" hint="digite uma tarefa"></TextField>
     <Label col="1" text="(+)"></Label>
   </GridLayout>
+
+  <ListView class="list-group" row="1" [items]="tasks">
+    <ng-template let-task="item">
+      <GridLayout class="list-group-item" columns="35px, *, auto">
+        <label col="0" [text]="task.done ? '[x]' : '[]'"></label>
+        <label col="1" [text]="task.title"></label>
+        <label col="2" text="(-)"></label>
+      </GridLayout>
+    </ng-template>
+  </ListView>
 </GridLayout>
